@@ -8,10 +8,13 @@ url = "http://67.32.159.27/webcad/webcad.asp"
 page = urllib2.urlopen(url)
 soup = BeautifulSoup(page.read())
 
-#test for now to just find links since incidents are down at the moment
-incidents = soup.find_all('a')
+# Create an emapty list for incidents
+incidents = []
 
-for links in incidents:
-  print(links.get('href'))
+# Find the second table which has the incidents and find the individual rows.
+for i in soup.findAll('table')[1].findAll('tr'):
+    incidents.append(i.get_text()) # Add the text from the row to the list
 
-
+# Print each line of the list on its own.
+for i in incidents:
+   print i
