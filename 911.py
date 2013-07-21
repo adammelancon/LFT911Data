@@ -1,4 +1,5 @@
 #testing get commit from raspi
+# Testing 123
 
 from bs4 import BeautifulSoup
 import urllib2
@@ -18,3 +19,4 @@ for i in soup.findAll('table')[1].findAll('tr'):
 # Print each line of the list on its own.
 for i in incidents:
    print i
+   print "=============================="
